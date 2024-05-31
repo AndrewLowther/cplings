@@ -11,12 +11,12 @@
 // Fix the syntax mistakes to return the correct pointer values
 
 int* my_pointer_value_swap(int* old_data) {
-    int new_data = old_data; // Fix: new_data should be a pointer
+    int* new_data = old_data; // Fix: new_data should be a pointer
     return new_data;
 }
 
-void my_pointer_content(int * const value, int increment) { // the address of pointed value is const 
-    value += increment; 
+void my_pointer_content(int* value, int increment) { // the address of pointed value is const 
+    *value += increment;
 }
 
 // Test cases
@@ -27,7 +27,7 @@ TEST_CASE("my_pointer_value_swap") {
     for(int & val : test_values) {
         int* pointer = &val;
         int* new_data_ptr = my_pointer_value_swap(&val);
-        REQUIRE(new_data_ptr  == &val); // new_data_ptr must point to val
+        REQUIRE(new_data_ptr == &val); // new_data_ptr must point to val
     }
 }
 

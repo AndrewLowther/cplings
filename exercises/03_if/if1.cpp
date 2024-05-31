@@ -11,7 +11,7 @@ int bigger(int a, int b) {
     // Do not use:
     // - another function call
     // - additional variables
-
+    return a < b ? b : a;
 }
 
 

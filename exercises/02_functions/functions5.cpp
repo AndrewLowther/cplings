@@ -7,12 +7,12 @@
 // even after you already figured it out. 
 
 // constexpr are evaluated at compile time. Fix it the syntax
-constexpr void is_even(int num) {
+constexpr int is_even(int num) {
     return num % 2 == 0;
 }
 
 // This is a lambda function. It's definition is broken, fix it
-auto sale_price = []() -> int {
+auto sale_price = [](int price) -> int {
     if (is_even(price))
         return price - 10;
     else 

@@ -9,7 +9,7 @@
 // This example showcases the use of a constexpr (computable at compile time)
 constexpr int double_var(const int x){
   // Solution fix the next line variable : note input cannot be modified
-  return x;
+  return x * 2;
 }
 
 int double_value_function(int x) {

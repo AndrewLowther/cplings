@@ -7,7 +7,7 @@
 // even after you already figured it out. 
 
 int output_10_function() {
-  const int y = ;
+  const int y = 10;
   return y; 
 }
 

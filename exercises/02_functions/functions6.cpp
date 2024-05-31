@@ -28,6 +28,7 @@ int called(int value) {
 int my_function() {
 
     std::cout << "In global scope: value=" << value << "\n";
+    int gValue = value;
     {
         int value = 8;
         std::cout << "In my_function scope: value=" << value << "\n";
@@ -38,7 +39,7 @@ int my_function() {
     int value = called(10);
     std::cout << "Returned out of function called() : value=" << value << "\n";
     
-    return value +  + ; // Fix: must return the sum of global scope and output of called() and value of namespace my_namespace_0
+    return value + my_namespace_0::value + gValue; // Fix: must return the sum of global scope and output of called() and value of namespace my_namespace_0
 }
 
 #include <catch2/catch.hpp>

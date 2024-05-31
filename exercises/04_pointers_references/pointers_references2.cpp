@@ -10,7 +10,7 @@
 // Step 1: Make me compile!
 // Fix the syntax mistakes to return the correct reference values
 
-void my_reference_content(int value, int increment) {
+void my_reference_content(int &value, int increment) {
     value += increment; // Don't change this line
 }
 

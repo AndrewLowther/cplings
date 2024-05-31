@@ -17,7 +17,7 @@
 const int y = 10; 
 long long integer_char_sizes() {
     const char a = 10;
-    const char b = ; // Fix: set expected value to pass the test
+    const char b = -24; // Fix: set expected value to pass the test
     std::cout << "Integer type = char \n";
     std::cout << "a=" << static_cast<int>(a) << "   b=" << static_cast<int>(b) << "\n";
     std::cout << "size of a=" << sizeof(a) << "  size of b=" << sizeof(b) << "\n\n";
@@ -26,7 +26,7 @@ long long integer_char_sizes() {
 
 long long unsigned_integer_char_sizes() {
     const unsigned char a = 10;
-    const unsigned char b = 0;  // Fix: set expected value to pass the test
+    const unsigned char b = 232;  // Fix: set expected value to pass the test
     std::cout << "Integer type = char \n";
     std::cout << "a=" << static_cast<int>(a) << "   b=" << static_cast<int>(b) << "\n";
     std::cout << "size of a=" << sizeof(a) << "  size of b=" << sizeof(b) << "\n\n";
@@ -36,7 +36,7 @@ long long unsigned_integer_char_sizes() {
 
 long long integer_long_sizes() {
     const long a = 1'000; // The quote sign (') before the zeroes helps for readability but is not necessary
-    const long b = 0;  // Fix: set expected value to pass the test
+    const long b = 80000;  // Fix: set expected value to pass the test
     std::cout << "Integer type = long \n";
     std::cout << "a=" << static_cast<int>(a) << "   b=" << static_cast<int>(b) << "\n";
     std::cout << "size of a=" << sizeof(a) << "  size of b=" << sizeof(b) << "\n\n";
@@ -45,7 +45,7 @@ long long integer_long_sizes() {
 
 long long integer_int_sizes() {
     const int a = 1'000LL;
-    const int b = 0;  // Fix: set expected value to pass the test
+    const int b = 10'000'000;  // Fix: set expected value to pass the test
     std::cout << "Integer type = int \n";
     std::cout << "a=" << static_cast<long long>(a) << "   b=" << static_cast<long long>(b) << "\n";
     std::cout << "size of a=" << sizeof(a) << "  size of b=" << sizeof(b) << "\n\n";
@@ -55,7 +55,7 @@ long long integer_int_sizes() {
 unsigned long long unsigned_integer_long_long_sizes() {
     std::cout << "Integer type = unsigned long long \n";
   const unsigned long long a = 10'000'000LL;
-  const unsigned long long b = 0; // Fix: set expected value to pass the test
+  const unsigned long long b = 18446744073699551616; // Fix: set expected value to pass the test
   std::cout << "a=" << static_cast<long long>(a) << "   b=" << static_cast<long long>(b) << "\n";
   std::cout << "size of a=" << sizeof(a) << "  size of b=" << sizeof(b) << "\n\n";
   return b;
