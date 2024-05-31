@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
-#include <?>
+#include <map>
+
+using namespace std;
 
 // containers3.cpp
 // Make me compile! Go to the folder hint if you want a hint :)
@@ -11,7 +13,7 @@
 // Step 1: Make me compile. Replace the array with the appropriate container.
 
 
-? my_sequence; // Change this type to the appropriate STL
+map<int, int> my_sequence; // Change this type to the appropriate STL
 
 void test_containers3() {
 	std::cout << "There should be only one element of only 5 elements  value (no duplicates) : \n";
