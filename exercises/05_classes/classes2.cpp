@@ -14,11 +14,11 @@ struct Point {
     double y;
 
     bool operator==(const Point& p) const{
-        return std::abs(x - p.x) < 1e-6 && std::abs(y - ) < ;
+        return std::abs(x - p.x) < 1e-6 && std::abs(y - p.y) < 1e-6;
     }
 };
 
-constexpr Point point_zero = ; 
+constexpr Point point_zero = Point{0, 0};
 
 class Shape {
 public:
@@ -41,6 +41,8 @@ public:
     static const double pi;
 
     Circle(const Point & centre = point_zero, double radius = 0.0) : center_(centre), radius_(radius) { // Default center_ is in zero
+        center_ = centre;
+        radius_ = radius;
     }
 
     Point center() const {
@@ -48,7 +50,7 @@ public:
     }
 
     double area() const {
-        return 0.0;
+        return pi * pow(radius_, 2);
     }
 };
 
@@ -75,6 +77,6 @@ TEST_CASE("test_two") {
     double radius = 3.0;
     Circle circle(point_in, radius);
     REQUIRE(circle.center() == point_in);
-    REQUIRE(circle.area() == Circle::pi * radius * radius);
+    REQUIRE(circle.area() == Circle::pi * pow(radius, 2));
 }
 

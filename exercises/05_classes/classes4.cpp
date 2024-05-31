@@ -43,6 +43,7 @@ public:
 class Circle : public Shape {
 public:
     Circle(const Point& centre = point_zero) : Shape(centre) { } 
+
     virtual Point center() const {
         return Circle::center_;
     }
@@ -53,11 +54,18 @@ std::vector<Point> test_center() {
     const Point point_in{ 1.0, 1.0 };
     const Circle circle(point_in);
     std::vector<Shape*> shape_collection;
-    shape_collection.push_back(&shape);
-    shape_collection.push_back(circle);  // Fix: Virtual calls work with references and addresses
+    // TODO: Figure out what this is doing, presumably it's casting?
+    // Seemingly so: https://cplusplus.com/articles/iG3hAqkS/
+    // It seems happy enough casting to a pointer here
+    shape_collection.push_back((Shape*) &shape);
+    shape_collection.push_back((Shape*) &circle);  // Fix: Virtual calls work with references and addresses
 
-    std::vector<Point> center_collection{ shape_collection[0].center(), // Fix: Virtual calls work with references and addresses
-                                                shape_collection[1].center() };
+    // TODO: Why does wrapping this in brackets work? 
+    // Element must have a class but it has type.
+    // it seems like this is an ambiguity case: https://cplusplus.com/forum/beginner/138279/
+    // wrapping in brackets removes the ambiguity
+    std::vector<Point> center_collection{ (*shape_collection[0]).center(), // Fix: Virtual calls work with references and addresses
+                                                (*shape_collection[1]).center() };
     std::cout << "Value :" << center_collection[0] << "\n";
     std::cout << "Value :" << center_collection[1] << "\n";
     return center_collection;
