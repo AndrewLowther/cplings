@@ -20,11 +20,11 @@ public:
         return resources.size();
     };
     ExpensiveResource(std::string n = "") : name(n) {
-        resources. ...;   // Fix: perform an operation on resources
+        resources.insert(name);   // Fix: perform an operation on resources
         std::cout << "Opening Ressource " << n << ", new count is:"<< resources.size() << "\n";
     }
     ~ExpensiveResource() {
-        resources. ...;   // Fix: perform an operation on resources
+        resources.erase(name);   // Fix: perform an operation on resources
         std::cout << "Closing Ressource " << name << ", new count is:" << resources.size() << "\n";
     }
 };
@@ -38,7 +38,10 @@ public:
     Holder(std::string n = "") { 
         resource = new ExpensiveResource(n);
     }
-    ~Holder() { // TODO: Delete the destructor
+    ~Holder() {
+        // TODO Delete this destructor
+        // For now it seems like deleting this stops the expensive resource 
+        // destructor from running at all
         delete resource;
     }
 };
