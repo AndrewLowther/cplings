@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
+
+using namespace std;
 
 // containers2.cpp
 // Make me compile! Go to the folder hint if you want a hint :)
@@ -11,13 +14,13 @@
 
 
 constexpr int num_inserts = 4;
-int my_sequence[num_inserts]; // Change this type to the appropriate STL
+unordered_set<int> my_sequence; // Change this type to the appropriate STL
 
 void test_containers2() {
 	std::cout << "There should be only one element of the same value (no duplicates) : \n";
 	for (size_t i = 0; i < num_inserts; i++)
 	{
-		my_sequence[i] = 42;
+		my_sequence.insert(42);
 	}
 }
 

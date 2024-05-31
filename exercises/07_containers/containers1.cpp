@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <unordered_map>
+
+using namespace std;
 
 // containers1.cpp
 // Make me compile! Go to the folder hint if you want a hint :)
@@ -11,9 +14,12 @@
 
 
 constexpr int num_elements = 4;
-int my_sequence[num_elements]; // Fix change this type to the appropriate STL container
+unordered_map<int, int> my_sequence; // Fix change this type to the appropriate STL container
 
 void test_containers1() {
+	// Try to at least be partially efficient with memory
+	my_sequence.reserve(num_elements);
+
 	for (size_t i = 0; i < num_elements; i++)
 	{
 		my_sequence[i] = 42;
@@ -29,7 +35,7 @@ TEST_CASE("test_containers1") {
 	REQUIRE(my_sequence.size() == num_elements); 
 
 	for (const auto& e : my_sequence) {
-		std::cout << "Value :" << e << "\n";
-		REQUIRE(e == 42);
+		std::cout << "Value :" << e.first << "\n";
+		REQUIRE(e.second == 42);
 	}
 }
